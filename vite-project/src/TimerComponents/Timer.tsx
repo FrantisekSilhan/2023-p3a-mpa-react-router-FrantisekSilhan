@@ -1,5 +1,6 @@
 import styles from './Timer.module.css';
 import { useEffect, useRef } from 'react';
+import { Link } from "react-router-dom";
 
 
 export type TimerProps = {
@@ -60,6 +61,7 @@ export const Timer:React.FC<TimerProps> = ({isRunning, testTime, totalTime, setT
                     {(testTime % 60).toString().padStart(2, "0")}
                 </span>
             </div>
+            <Link to="/settings">Settings</Link>
         </div>
     );
     

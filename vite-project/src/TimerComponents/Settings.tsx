@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faHourglassHalf } from '@fortawesome/free-solid-svg-icons';
 import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 
 export type SettingsProps = {
@@ -21,6 +22,7 @@ export const Settings:React.FC<SettingsProps> = ({setTestTime, setThresholdType,
     const minuteRef = useRef<HTMLInputElement>(null);
     const secondRef = useRef<HTMLInputElement>(null);
     const thresholdRef = useRef<HTMLInputElement>(null);
+    const navigate = useNavigate();
 
     const [thresholdType, setLocalThresholdType] = useState<'minutes' | 'percentage'>('minutes');
 
@@ -49,6 +51,7 @@ export const Settings:React.FC<SettingsProps> = ({setTestTime, setThresholdType,
           alert("Zadejte čas v rozmezí 5s - 6h");
         }
         console.log(time);
+        navigate("/");
     }
 
     return (
@@ -88,10 +91,11 @@ export const Settings:React.FC<SettingsProps> = ({setTestTime, setThresholdType,
           <button type='submit'><FontAwesomeIcon icon={faCheck} /> Set!</button>
 
           <button type="button" onClick={() => {
-            setIsRunning(); 
+            /*setIsRunning(); 
             if (!isRunning) {
               setIsSettings(); 
-            }
+            }*/
+            navigate("/");
           }}>
             {isRunning ? <FontAwesomeIcon icon={faStop} /> : <FontAwesomeIcon icon={faPlay} />}
           </button>
@@ -101,31 +105,37 @@ export const Settings:React.FC<SettingsProps> = ({setTestTime, setThresholdType,
         <button onClick={() => {
         setTestTime(300);
         setTotalTime(300);
+        navigate("/");
       }}><FontAwesomeIcon icon={faHourglassHalf} /> pětiminutovka</button>
 
       <button onClick={() => {
         setTestTime(600);
         setTotalTime(600);
+        navigate("/");
       }}><FontAwesomeIcon icon={faHourglassHalf} /> desetiminutovka</button>
 
       <button onClick={() => {
         setTestTime(900);
         setTotalTime(900);
+        navigate("/");
       }}><FontAwesomeIcon icon={faHourglassHalf} /> maturitní zkouška</button>
 
       <button onClick={() => {
         setTestTime(2400);
         setTotalTime(2400);
+        navigate("/");
       }}><FontAwesomeIcon icon={faHourglassHalf} /> hodinový test</button>
 
       <button onClick={() => {
         setTestTime(5100);
         setTotalTime(5100);
+        navigate("/");
       }}><FontAwesomeIcon icon={faHourglassHalf} /> dvouhodinový test</button>
 
       <button onClick={() => {
         setTestTime(14400);
         setTotalTime(14400);
+        navigate("/");
       }}><FontAwesomeIcon icon={faHourglassHalf} /> maturitní práce</button>
       </div>
     )
