@@ -12,12 +12,12 @@ export type SettingsProps = {
     setThresholdValue: (value: number) => void;
     setIsRunning: () => void;
     isRunning: boolean;
-    setIsSettings: () => void;
+    //setIsSettings: () => void;
     setTotalTime: (time: number) => void;
     thresholdValue: number;
 }
 
-export const Settings:React.FC<SettingsProps> = ({setTestTime, setThresholdType, setThresholdValue, setIsRunning, isRunning, setIsSettings, setTotalTime, thresholdValue}) => {
+export const Settings:React.FC<SettingsProps> = ({setTestTime, setThresholdType, setThresholdValue, setIsRunning, isRunning, setTotalTime, thresholdValue}) => {
     const hourRef = useRef<HTMLInputElement>(null);
     const minuteRef = useRef<HTMLInputElement>(null);
     const secondRef = useRef<HTMLInputElement>(null);

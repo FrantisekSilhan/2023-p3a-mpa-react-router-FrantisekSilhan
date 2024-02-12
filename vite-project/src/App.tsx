@@ -6,8 +6,6 @@ import { Layout } from './TimerComponents/Layout';
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from "react-router-dom";
 
 function App() {
-  const [settings, setIsSettings] = useState<boolean>(false);
-
   const [thresholdType, setThresholdType] = useState<'minutes' | 'percentage'>('minutes');
   const [thresholdValue, setThresholdValue] = useState<number>(5);
  
